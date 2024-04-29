@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'style.css' %}" >
+    <title>Simple Panel</title>
+</head>
+<body class="main-body">
+
+<div class="container">
+    <h1>MFA Web</h1>
+    <p>Hello, <strong>{{username}}</strong></p>
+    <div class="panel">
+        <h2>Dashboard</h2>
+        <table>
+            <tr>
+                <th>isim/soyisim</th>
+                <th>Final Notu</th>
+                <th>Tarih</th>
+            </tr>
+            {% for student in students  %}
+                <tr>
+                    <td>{{student.Name}}</td>
+                    <td>{{student.FinalGrade}}</td>
+                    <td>{{student.CreatedAt}}</td>
+                </tr>
+            {% endfor %}            
+        </table>
+        <p style="font-family: Verdana; font-weight: bold; font-size: 12pt;">
+            Final Ortalaması: {{mean}}
+        </p>
+    </div>
+    <a href="/logout" class="logout-btn">Logout</a>
+</div>
+
+</body>
+</html>
